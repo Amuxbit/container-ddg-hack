@@ -1,0 +1,24 @@
+#!/bin/bash
+
+source lib/core.sh
+
+main() {
+  installDuckpan() {
+    local packages=(App::DuckPAN)
+    runCpanmShell "${packages[@]}"
+  }
+
+  ddg() {
+    duckpan DDG
+  }
+
+  check() {
+    duckpan check
+  }
+
+  local commands=(info cleanApt installDuckpan ddg check)
+  run "${commands[@]}"
+  catch
+}
+
+main
